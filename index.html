@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single-Page Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .page-section {
+      display: none;
+    }
+
+    /* Show the active section */
+    .page-section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Menu -->
+  <nav>
+    <ul>
+      <li><a href="#home" onclick="showPage('home')">Home</a></li>
+      <li><a href="#about" onclick="showPage('about')">About</a></li>
+      <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Sections -->
+  <div class="page-section active" id="home">
+    <h1>Welcome to the Home Page</h1>
+    <p>This is the content of the Home Page.</p>
+  </div>
+
+  <div class="page-section" id="about">
+    <h1>About Us</h1>
+    <p>This is the content of the About Us page.</p>
+  </div>
+
+  <div class="page-section" id="contact">
+    <h1>Contact Us</h1>
+    <p>This is the content of the Contact Us page.</p>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      // Hide all page sections
+      const pageSections = document.querySelectorAll('.page-section');
+      pageSections.forEach(function(section){section.classList.remove('active')});
+
+      // Show the selected page section
+      const selectedSection = document.getElementById(pageId);
+      if (selectedSection) {
+        selectedSection.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
